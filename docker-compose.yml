@@ -44,6 +44,16 @@ services:
     networks:
       - sail
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    links:
+      - postgres
+    networks:
+      - sail
+
   redis:
     image: "redis:alpine"
     ports:
