@@ -15,18 +15,26 @@ class CreateAdvertsTable extends Migration
     {
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title',128);
             $table->integer('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');;
+            $table->index('category_id');
             $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');;
+            $table->index('user_id');
             $table->enum('status', ['edited','moderated','approved']);
             $table->integer('city_id');
-            $table->string('description');
+            $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');;
+            $table->index('city_id');
+            $table->mediumText('description',512);
             $table->timestamp('published_at');
-            $table->integer('price');
-            $table->integer('owner_id');
-            $table->integer('views');
+            $table->integer('views')->unsigned();
+            $table->integer('price')->unsigned();
             $table->timestamps();
             $table->softDeletes();
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 

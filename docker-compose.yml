@@ -54,6 +54,20 @@ services:
     networks:
       - sail
 
+  phppgadmin:
+    restart: always
+    image: dockage/phppgadmin:latest
+    environment:
+      - PHP_PG_ADMIN_SERVER_HOST=postgres
+    ports:
+      - "8082:80"
+    depends_on:
+      - postgres
+    networks:
+      - sail
+    links:
+      - postgres
+
   redis:
     image: "redis:alpine"
     ports:

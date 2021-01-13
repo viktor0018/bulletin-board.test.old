@@ -15,13 +15,18 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->string('description');
+            $table->string('name',128);
+            $table->string('slug',128);
+            $table->string('description',128);
             $table->integer('parent_id');
+            $table->index('parent_id');
+           // $table->foreign('parent_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');;
             $table->integer('sort_order');
             $table->timestamps();
             $table->softDeletes();
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_unicode_ci';
         });
     }
 
