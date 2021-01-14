@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -23,16 +24,16 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstName,
+            'name' => $this->faker->firstNameMale,
             'surname' => $this->faker->lastName,
-            'middlename' => $this->faker->firstNameMale,
+            'middlename' => $this->faker->middleNameMale,
             'role' => $this->faker->randomElement(['guest', 'user','moder','admin']) ,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' =>  '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password , Hash::make ( $this->faker->password())
             'phone' => $this->faker->phoneNumber,
-            'phone_access_time' => $this->faker->text(128),
-            'status' => $this->faker->randomElement(['noactive', 'active']) ,
+            'phone_access_time' =>   $this->faker->boolean() ? $this->faker->time('h:m').'-'.$this->faker->time('h:m') : null,
+            'status' => $this->faker->randomElement(['unverified', 'active','banned']) ,
             'remember_token' => Str::random(10),
         ];
     }

@@ -25,12 +25,12 @@ class AdvertFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(128),
+            'title' => $this->faker->realText(128),
             'category_id' => Category::all()->random()->id,
-            'user_id' => User::all()->random()->id,
-            'status' => $this->faker->randomElement(['edited','moderated','approved']),
+            'user_id' => User::where('status','active')->inRandomOrder()->first()->id,
+            'status' => $this->faker->randomElement(['edited','moderated','rejected','approved','soldout']),
             'city_id' => City::all()->random()->id,
-            'description' =>$this->faker->text(128),
+            'description' =>$this->faker->realText(128),
             'published_at'  =>$this->faker->dateTimeBetween('-1 years'),
             'views' => $this->faker->numberBetween(0,10000),
             'price' => $this->faker->numberBetween(0,10000),

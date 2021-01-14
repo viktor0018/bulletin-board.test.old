@@ -22,7 +22,7 @@ class CreateAdvertsTable extends Migration
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');;
             $table->index('user_id');
-            $table->enum('status', ['edited','moderated','approved']);
+            $table->enum('status', ['edited','moderated','rejected','approved','soldout']);
             $table->integer('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');;
             $table->index('city_id');

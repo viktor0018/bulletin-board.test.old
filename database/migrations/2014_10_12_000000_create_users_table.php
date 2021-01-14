@@ -23,9 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('password',128);
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone',32);
-            $table->string('phone_access_time',128);
-            $table->enum('status', ['noactive', 'active']);
+            $table->string('phone',32)->unique();;
+            $table->string('phone_access_time',128)->nullable();
+            $table->enum('status', ['unverified', 'active','banned']);
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'InnoDB';
