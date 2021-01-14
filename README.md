@@ -4,7 +4,8 @@
 
 [Source code](https://github.com/viktor0018/bulletin-board.test)
 
-##Development environment requirements :
+## Development environment requirements :
+
 Docker version 19.03.12
 Composer version 2.0.8
 
