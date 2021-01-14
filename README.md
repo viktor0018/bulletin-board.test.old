@@ -6,8 +6,9 @@
 
 ## Development environment requirements :
 
-Docker version 19.03.12
-Composer version 2.0.8
+    Docker version 19.03.12
+    Composer version 2.0.8
+    NPM version  6.14.5
 
 ## Installation
 
@@ -29,6 +30,7 @@ Seeding the database :
     $ sail artisan db:seed
 
 Now you can access the application via http://0.0.0.0:80
+
 And application database via adminer - http://0.0.0.0:8081/?pgsql=postgres&username=root&db=bulletin_board.test&ns=public&table=users
 
 ### Dbdesigner.id
