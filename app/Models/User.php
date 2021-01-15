@@ -18,8 +18,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'middlename',
+        'role',
         'email',
         'password',
+        'email_verified_at',
+        'phone',
+        'phone_access_time',
+        'status'
     ];
 
     /**
@@ -40,4 +47,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function advert()
+    {
+        return $this->belongsTo(Advert::class, 'id', 'city_id');
+    }
+
+    public function moderation()
+    {
+        return $this->belongsTo(Moderation::class, 'id', 'city_id');
+    }
 }

@@ -16,13 +16,35 @@ class Advert extends Model
      */
     protected $fillable = [
         'title',
-        'category_id',
         'user_id',
         'status',
-        'city_id',
         'description',
-        'published_at',
         'views',
         'price',
     ];
+
+    public function author()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+    public function city()
+    {
+        return $this->hasOne(City::class, 'id', 'city_id');
+    }
+
+    public function moderation()
+    {
+        return $this->belongsTo(Moderation::class, 'id', 'city_id');
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo(Photo::class, 'id', 'city_id');
+    }
 }

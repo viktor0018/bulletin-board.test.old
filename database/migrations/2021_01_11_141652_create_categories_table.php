@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->string('description',128);
             $table->integer('parent_id');
             $table->index('parent_id');
-           // $table->foreign('parent_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');;
+            $table->foreign('parent_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');;
             $table->integer('sort_order');
             $table->timestamps();
             $table->softDeletes();

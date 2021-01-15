@@ -18,7 +18,15 @@ class Category extends Model
         'name',
         'slug',
         'description',
-        'parent_id',
-        'parent_id',
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'id', 'parent_id');
+    }
+
+    public function advert()
+    {
+        return $this->hasMany(Advert::class);
+    }
 }

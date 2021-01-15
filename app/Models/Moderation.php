@@ -8,4 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Moderation extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'moderated_at',
+        'resolution',
+        'reason',
+    ];
+
+
+    public function advert()
+    {
+        return $this->hasOne(Advert::class, 'id', 'advert_id');
+    }
+
+    public function author()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
 }
