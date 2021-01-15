@@ -3,9 +3,7 @@
 <p align="center">
   <img src="https://sun9-30.userapi.com/impg/gvrzAaO3aTzrv30QeP9RmlUCgkMXv2a9pOowbw/ky0484i3A6U.jpg?size=1320x1276&quality=96&proxy=1&sign=aaa12f9617b7f14d4a1f223d7a887a9d&type=album" width="500" title="hover text">
 </p>
-
 ![](https://img.shields.io/github/stars/viktor0018/bulletin-board.test.svg)
-
 [Source code](https://github.com/viktor0018/bulletin-board.test)
 
 ## Development environment requirements :
@@ -40,3 +38,7 @@ And application database via adminer - http://0.0.0.0:8081/?pgsql=postgres&usern
 ### Dbdesigner.id
 
     https://app.dbdesigner.id/?action=open&uuid=064808d3-c135-4ee3-9957-acfa12900353
+
+<p align="center">
+  <img src="https://sun9-43.userapi.com/impg/dIAyWure2G1Mg6wTcDTKSO3nStkMQ76-iJuZAw/XaH4f_dNyao.jpg?size=2560x1635&quality=96&proxy=1&sign=df2047bc32841f1a4916eec61813a569&type=album" width="500" title="hover text">
+</p>
