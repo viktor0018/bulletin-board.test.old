@@ -5,6 +5,7 @@
 </p>
 
 ![](https://img.shields.io/github/stars/viktor0018/bulletin-board.test.svg)
+
 [Source code](https://github.com/viktor0018/bulletin-board.test)
 
 ## Development environment requirements :
