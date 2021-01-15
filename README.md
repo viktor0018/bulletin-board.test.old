@@ -1,7 +1,9 @@
 # BulletinBoard
 
+<p align="center">
+  <img src="https://sun9-30.userapi.com/impg/gvrzAaO3aTzrv30QeP9RmlUCgkMXv2a9pOowbw/ky0484i3A6U.jpg?size=1320x1276&quality=96&proxy=1&sign=aaa12f9617b7f14d4a1f223d7a887a9d&type=album" width="500" title="hover text">
+</p>
 ![](https://img.shields.io/github/stars/viktor0018/bulletin-board.test.svg)
-
 [Source code](https://github.com/viktor0018/bulletin-board.test)
 
 ## Development environment requirements :
