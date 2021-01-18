@@ -47,4 +47,9 @@ class Advert extends Model
     {
         return $this->belongsTo(Photo::class, 'id', 'city_id');
     }
+
+    public function status()
+    {
+        return $this->hasOne(AdvertStatus::class, 'id', 'advert_status_id');
+    }
 }

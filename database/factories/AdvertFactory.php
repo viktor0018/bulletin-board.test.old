@@ -6,6 +6,7 @@ use App\Models\Advert;
 use App\Models\User;
 use App\Models\City;
 use App\Models\Category;
+use App\Models\AdvertStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AdvertFactory extends Factory
@@ -27,8 +28,8 @@ class AdvertFactory extends Factory
         return [
             'title' => $this->faker->realText(128),
             'category_id' => Category::all()->random()->id,
-            'user_id' => User::where('status','active')->inRandomOrder()->first()->id,
-            'status' => $this->faker->randomElement(['edited','moderated','rejected','approved','soldout']),
+            'user_id' =>  User::all()->random()->id, //User::where('status','active')->inRandomOrder()->first()->id,
+            'advert_status_id' => AdvertStatus::all()->random()->id,
             'city_id' => City::all()->random()->id,
             'description' =>$this->faker->realText(128),
             'published_at'  =>$this->faker->dateTimeBetween('-1 years'),

@@ -44,5 +44,5 @@ Usefull commands:
     https://app.dbdesigner.id/?action=open&uuid=064808d3-c135-4ee3-9957-acfa12900353
 
 <p align="center">
-  <img src="https://sun9-51.userapi.com/impg/6fxouferzZU0MXSz9_p2VFf7-7q8ipJhsdt6bA/HbWZdzLL3UU.jpg?size=2560x1511&quality=96&proxy=1&sign=085cf6904b6d322b5631a78c5ffcf9b1&type=album" width="500" title="hover text">
+  <img src="https://sun9-6.userapi.com/impg/rz2ITBp09RkKVVxoYziqTBMGA6zYGUKUQizMcg/PfBMeFa552M.jpg?size=2560x1499&quality=96&proxy=1&sign=9fbc7deb9e83d24a31a2c427a8301d70&type=album" width="500" title="hover text">
 </p>

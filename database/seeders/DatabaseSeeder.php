@@ -18,10 +18,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+         DB::unprepared(file_get_contents(__DIR__ .'/sql/user_status.sql'));
+         DB::unprepared(file_get_contents(__DIR__ .'/sql/user_roles.sql'));
          \App\Models\User::factory(10)->create();
          DB::unprepared(file_get_contents(__DIR__ .'/sql/categories.sql'));
          DB::unprepared(file_get_contents(__DIR__ .'/sql/regions.sql'));
          DB::unprepared(file_get_contents(__DIR__ .'/sql/cities.sql'));
+         DB::unprepared(file_get_contents(__DIR__ .'/sql/advert_status.sql'));
+
+         DB::unprepared(file_get_contents(__DIR__ .'/sql/moderation_resolution.sql'));
          \App\Models\Advert::factory(10)->create();
 
         for($i =1 ; $i< Advert::count(); $i++ ){
@@ -38,14 +43,14 @@ class DatabaseSeeder extends Seeder
 
         $faker = \Faker\Factory::create('ru_RU');
         for($i =1 ; $i< Advert::count(); $i++ ){
-            if(Advert::find($i)->status == 'rejected'
-            || Advert::find($i)->status == 'approved'
-            || Advert::find($i)->status == 'soldout'){
+            if(Advert::find($i)->status->slug == 'rejected'
+            || Advert::find($i)->status->slug == 'acive'
+            || Advert::find($i)->status->slug == 'soldout'){
                 for($j=0;$j=rand(0,5); $j++){
                 DB::table('moderations')->insert([
                     'moderated_at'  =>now(),
                     'advert_id' =>$i,
-                    'user_id' =>User::where('role','moder')->orWhere('role','admin')->inRandomOrder()->first()->id,
+                    'user_id' =>User::all()->random()->id,
                     'resolution'  => 'rejected',
                     'reason' => $faker->realText(256),
                     'created_at' => now(),
@@ -53,12 +58,15 @@ class DatabaseSeeder extends Seeder
                 ]);
                 }
             }
-            if(Advert::find($i)->status == 'approved'
-            || Advert::find($i)->status == 'soldout'){
+
+
+
+            if(Advert::find($i)->status->slug == 'approved'
+            || Advert::find($i)->status->slug == 'soldout'){
                 DB::table('moderations')->insert([
                     'moderated_at'  =>now(),
                     'advert_id' =>$i,
-                    'user_id' =>User::where('role','moder')->orWhere('role','admin')->inRandomOrder()->first()->id,
+                    'user_id' =>User::all()->random()->id,
                     'resolution'  => 'approved',
                     'reason' => null,
                     'created_at' => now(),
@@ -66,5 +74,6 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
+
     }
 }
